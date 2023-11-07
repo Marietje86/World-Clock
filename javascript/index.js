@@ -47,6 +47,10 @@ japanTimeElement.innerHTML = moment().tz("Japan").format("HH:mm:ss");
 
 function updateCity(event) {
    let cityTimzone = event.target.value;
+   if (cityTimzone === "current") {
+       cityTimzone = moment.tz.guess();
+   }
+
    let cityName = cityTimzone.replace("_", " ").split("/")[1];
    let cityTime = moment().tz(cityTimzone);
    let citiesElement = document.querySelector ("#cities");
