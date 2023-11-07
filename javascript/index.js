@@ -47,7 +47,7 @@ japanTimeElement.innerHTML = moment().tz("Japan").format("HH:mm:ss");
 
 function updateCity(event) {
    let cityTimzone = event.target.value;
-   let cityName = cityTimzone.replace("_", "").split("/")[1];
+   let cityName = cityTimzone.replace("_", " ").split("/")[1];
    let cityTime = moment().tz(cityTimzone);
    let citiesElement = document.querySelector ("#cities");
    citiesElement.innerHTML = `
@@ -59,7 +59,6 @@ function updateCity(event) {
    <div class="time">${cityTime.format("HH:mm:ss")}</div>
 </div>
 `;
-console.log(citiesElement.innerHTML);
 }
 
 updateTime();
